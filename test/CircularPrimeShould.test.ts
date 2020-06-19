@@ -1,6 +1,9 @@
 import { GetNumberRotations } from "../src/CircularPrime/GetNumberRotations";
 import { IsPrimeNumber } from "../src/CircularPrime/IsPrimeNumber";
 import {IsCircularPrime} from "../src/CircularPrime/IsCircularPrime";
+import {ComputeQuantityOfCircularPrimesBelowXNumber} from "../src/CircularPrime/ComputeQuantityOfCircularPrimesBelowXNumber";
+
+
 
 describe("Circular Prime Suit", () => {
     describe('Rotation should', () => {
@@ -185,6 +188,73 @@ describe("Circular Prime Suit", () => {
 
             expect(res).toBeTruthy();
         });
+    });
+
+    describe('How many circular primes are below x number', () => {
+        let getNumberRotations!: GetNumberRotations;
+        let isPrimeNumber: IsPrimeNumber;
+        let isCircularPrime: IsCircularPrime;
+        let computeNumberOfCircularPrimesBelowXNumber: ComputeQuantityOfCircularPrimesBelowXNumber;
+
+        beforeEach(() => {
+            getNumberRotations = new GetNumberRotations();
+            isPrimeNumber = new IsPrimeNumber();
+            isCircularPrime = new IsCircularPrime(getNumberRotations, isPrimeNumber);
+            computeNumberOfCircularPrimesBelowXNumber = new ComputeQuantityOfCircularPrimesBelowXNumber(isCircularPrime);
+        });
+
+
+        test("There are 0 circular primes below 1", () => {
+
+            const res = computeNumberOfCircularPrimesBelowXNumber.execute(1);
+
+            expect(res).toBe(0);
+        });
+
+        test("There are 4 circular primes below 10", () => {
+
+            const res = computeNumberOfCircularPrimesBelowXNumber.execute(10);
+
+            expect(res).toBe(4);
+        });
+
+        test("There are 13 circular primes below 100", () => {
+
+            const res = computeNumberOfCircularPrimesBelowXNumber.execute(100);
+
+            expect(res).toBe(13);
+        });
+
+        test("There are 25 circular primes below 1000", () => {
+
+            const res = computeNumberOfCircularPrimesBelowXNumber.execute(1000);
+
+            expect(res).toBe(25);
+        });
+
+        test("There are 33 circular primes below 10000", () => {
+
+            const res = computeNumberOfCircularPrimesBelowXNumber.execute(10000);
+
+            expect(res).toBe(33);
+        });
+
+        test("There are 43 circular primes below 100000", () => {
+
+            const res = computeNumberOfCircularPrimesBelowXNumber.execute(100000);
+
+            expect(res).toBe(43);
+        });
+
+        test.skip("There are 55 circular primes below 1000000", () => {
+
+            const res = computeNumberOfCircularPrimesBelowXNumber.execute(1000000);
+
+            expect(res).toBe(55);
+        });
+
+
+
 
 
     });

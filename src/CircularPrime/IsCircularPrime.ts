@@ -9,17 +9,19 @@ export class IsCircularPrime {
     execute(number: number): boolean {
         if (!this.isPrimeNumber.execute(number)) { return false; }
 
-        let isCircularPrime = true;
         const rotations = this.getNumberRotations.execute(number);
 
+        return this.areAllTheRotationsPrimeNumbers(rotations);
+    }
+
+    private areAllTheRotationsPrimeNumbers(rotations): boolean {
+        let  areAllTheRotationsPrimeNumbers = true;
         rotations.forEach((rotation) => {
             if (!this.isPrimeNumber.execute(rotation)) {
-                isCircularPrime = false;
-                return;
+                areAllTheRotationsPrimeNumbers = false;
+               return;
             }
         })
-
-        return isCircularPrime;
-
+        return areAllTheRotationsPrimeNumbers;
     }
 }
