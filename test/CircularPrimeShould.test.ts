@@ -1,26 +1,4 @@
-class GetNumberRotations {
-
-    execute(value: number): number[] {
-        const rotations: number[] = [];
-        if (value.toString().length === 1) { return rotations; }
-
-        const numberToRotate = value.toString();
-
-        let temporalNumber = numberToRotate;
-
-
-        for(let i =0; i < numberToRotate.length-1; i++ ) {
-            const firstDigit = temporalNumber[0];
-            temporalNumber = temporalNumber.substring(1, temporalNumber.length);
-            temporalNumber = temporalNumber + firstDigit;
-
-            rotations.push(Number(temporalNumber));
-        }
-
-        return rotations;
-
-    }
-}
+import { GetNumberRotations } from "../src/CircularPrime/GetNumberRotations";
 
 describe("Circular Prime Suit", () => {
     describe('Rotation should', () => {
