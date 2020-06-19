@@ -104,6 +104,14 @@ describe("Circular Prime Suit", () => {
             expect(res).toBeTruthy();
         });
 
+        test("if the given number is equal to 19531, the action must answer true", () => {
+            const isPrimeNumber = new IsPrimeNumber();
+
+            const res = isPrimeNumber.execute(19531);
+
+            expect(res).toBeTruthy();
+        });
+
     });
 
     describe('Is Circular Prime', () => {

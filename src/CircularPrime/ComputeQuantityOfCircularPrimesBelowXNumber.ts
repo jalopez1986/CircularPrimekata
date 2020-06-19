@@ -8,7 +8,7 @@ export class ComputeQuantityOfCircularPrimesBelowXNumber {
     execute(number: number) {
         let quantity = 0;
         for (let i = 1; i <= number; i++) {
-            if (this.isCircularPrime.execute(i)) { quantity = quantity +1; }
+            if (this.isCircularPrime.execute(i)) { quantity = quantity + 1; }
         }
         return quantity;
     }
