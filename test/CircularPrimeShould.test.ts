@@ -88,6 +88,14 @@ describe("Circular Prime Suit", () => {
             expect(res).toBeTruthy();
         });
 
+        test("if the given number is equal to 9, the action must answer false", () => {
+            const isPrimeNumber = new IsPrimeNumber();
+
+            const res = isPrimeNumber.execute(9);
+
+            expect(res).not.toBeTruthy();
+        });
+
         test("if the given number is equal to 19, the action must answer true", () => {
             const isPrimeNumber = new IsPrimeNumber();
 
@@ -246,7 +254,7 @@ describe("Circular Prime Suit", () => {
             expect(res).toBe(43);
         });
 
-        test.skip("There are 55 circular primes below 1000000", () => {
+        test("There are 55 circular primes below 1000000", () => {
 
             const res = computeNumberOfCircularPrimesBelowXNumber.execute(1000000);
 
