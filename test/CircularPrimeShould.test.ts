@@ -1,4 +1,7 @@
 import { GetNumberRotations } from "../src/CircularPrime/GetNumberRotations";
+import { IsPrimeNumber } from "../src/CircularPrime/IsPrimeNumber";
+
+
 
 describe("Circular Prime Suit", () => {
     describe('Rotation should', () => {
@@ -42,7 +45,56 @@ describe("Circular Prime Suit", () => {
         });
     });
 
-    test("super test", () => {
-        expect(1).toBe(1);
+    describe('Is a Prime Number should', () => {
+        test("given a prime number, the action must answer true", () => {
+            const isPrimeNumber = new IsPrimeNumber();
+
+            const res = isPrimeNumber.execute(3);
+
+            expect(res).toBeTruthy();
+        });
+
+        test("given a non prime number, the action must answer false", () => {
+            const isPrimeNumber = new IsPrimeNumber();
+
+            const res = isPrimeNumber.execute(6);
+
+            expect(res).not.toBeTruthy();
+        });
+
+        test("if the given number is equal to one, the action must answer false", () => {
+            const isPrimeNumber = new IsPrimeNumber();
+
+            const res = isPrimeNumber.execute(1);
+
+            expect(res).not.toBeTruthy();
+        });
+
+        test("if the given number is equal to 2, the action must answer true", () => {
+            const isPrimeNumber = new IsPrimeNumber();
+
+            const res = isPrimeNumber.execute(2);
+
+            expect(res).toBeTruthy();
+        });
+
+        test("if the given number is equal to 19, the action must answer true", () => {
+            const isPrimeNumber = new IsPrimeNumber();
+
+            const res = isPrimeNumber.execute(19);
+
+            expect(res).toBeTruthy();
+        });
+
+    });
+
+    describe('Is Circular Prime', () => {
+        test("There are 0 circular primes below 1.", () => {
+            const isPrimeNumber = new IsPrimeNumber();
+
+            const res = isPrimeNumber.execute(3);
+
+            expect(res).toBeTruthy();
+        });
     });
 });
